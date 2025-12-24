@@ -1,0 +1,311 @@
+/* 君未见官网｜统一样式（新增图片样式） */
+:root {
+  --text-main: #111111;
+  --text-sub: #555555;
+  --border-light: #e6e6e6;
+  --bg-main: #ffffff;
+  --bg-light: #f7f7f7;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC",
+    "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif;
+  color: var(--text-main);
+  background: var(--bg-main);
+  line-height: 1.7;
+}
+.container {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+/* Header（新增logo样式） */
+.site-header {
+  border-bottom: 1px solid var(--border-light);
+  position: sticky;
+  top: 0;
+  background: var(--bg-main);
+  z-index: 999;
+}
+.site-header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px; /* 调整内边距适配logo */
+}
+.brand {
+  display: flex;
+  align-items: center;
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: var(--text-main);
+}
+.logo-img {
+  height: 60px; /* logo高度 */
+  margin-right: 12px;
+}
+.brand-text {
+  font-size: 20px;
+}
+.nav a {
+  margin-left: 24px;
+  font-size: 15px;
+  color: var(--text-sub);
+  position: relative;
+  text-decoration: none;
+}
+.nav a.active,
+.nav a:hover {
+  color: var(--text-main);
+}
+.nav a.active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 100%;
+  height: 1px;
+  background: var(--text-main);
+}
+/* 英雄区（新增背景图样式） */
+.hero {
+  padding: 120px 0;
+  background: url(images/hero-bg.jpg) no-repeat center center; /* 背景图 */
+  background-size: cover; /* 自适应覆盖 */
+  position: relative;
+}
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255,255,255,0.85); /* 半透明遮罩，保证文字可读性 */
+}
+.hero-content {
+  position: relative; /* 文字层级高于背景遮罩 */
+  z-index: 1;
+}
+/* Sections */
+section {
+  padding: 96px 0;
+  border-bottom: 1px solid var(--border-light);
+}
+section:last-of-type {
+  border-bottom: none;
+}
+h1 {
+  font-size: 42px;
+  line-height: 1.3;
+  margin-bottom: 24px;
+}
+h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  position: relative;
+  padding-bottom: 12px;
+}
+h2::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 60px;
+  height: 2px;
+  background: var(--text-main);
+}
+h3 {
+  font-size: 20px;
+  margin-bottom: 12px;
+  color: var(--text-main);
+}
+p {
+  color: var(--text-sub);
+  margin-bottom: 16px;
+  max-width: 760px;
+}
+/* Buttons */
+.btn {
+  display: inline-block;
+  margin-top: 24px;
+  padding: 14px 36px;
+  border: 1px solid var(--text-main);
+  color: var(--text-main);
+  font-size: 15px;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  border-radius: 2px;
+}
+.btn:hover {
+  background: var(--text-main);
+  color: #ffffff;
+}
+/* Footer（新增footer logo样式） */
+footer {
+  background: var(--bg-light);
+  padding: 48px 0;
+  font-size: 14px;
+  color: #666666;
+}
+.footer-logo {
+  height: 50px;
+  margin-right: 12px;
+}
+/* Lists */
+ul {
+  padding-left: 20px;
+  margin-bottom: 24px;
+  color: var(--text-sub);
+}
+ul li {
+  margin-bottom: 12px;
+  line-height: 1.8;
+}
+/* 核心业务样式（新增） */
+.services-preview {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 32px;
+  margin-bottom: 32px;
+}
+.service-item {
+  padding: 24px;
+  background: var(--bg-light);
+  border-radius: 8px;
+  text-align: center;
+}
+.service-icon {
+  height: 80px;
+  margin-bottom: 16px;
+}
+/* 案例样式（新增） */
+.case-preview {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 32px;
+  margin-bottom: 32px;
+}
+.case-item {
+  padding: 24px;
+  background: var(--bg-light);
+  border-radius: 8px;
+}
+.case-img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover; /* 图片自适应裁剪，不变形 */
+  border-radius: 4px;
+  margin-bottom: 16px;
+}
+.case-detail-img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 4px;
+  margin: 24px 0;
+}
+/* 团队样式（新增） */
+.team {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 32px;
+  margin-bottom: 32px;
+}
+.team-member {
+  padding: 24px;
+  background: var(--bg-light);
+  border-radius: 8px;
+  text-align: center;
+}
+.team-avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%; /* 圆形头像 */
+  object-fit: cover;
+  margin-bottom: 16px;
+}
+/* 联系我们样式（新增） */
+.contact-section {
+  background: url(images/contact-bg.png) no-repeat center center;
+  background-size: cover;
+  position: relative;
+}
+.contact-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255,255,255,0.9);
+}
+.contact-wrap {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 32px;
+  position: relative;
+  z-index: 1;
+}
+.map-img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+/* Responsive */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 32px;
+  }
+  h2 {
+    font-size: 24px;
+  }
+  .site-header .container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .nav {
+    margin-top: 16px;
+  }
+  .nav a {
+    margin-left: 0;
+    margin-right: 16px;
+  }
+  section {
+    padding: 64px 0;
+  }
+  .hero {
+    padding: 80px 0;
+  }
+  .services-preview, .advantages, .philosophy, .team, .contact-wrap {
+    grid-template-columns: 1fr;
+  }
+  .case-img, .case-detail-img, .map-img {
+    height: 180px; /* 移动端图片高度适配 */
+  }
+  .logo-img {
+    height: 50px; /* 移动端logo缩小 */
+  }
+}
+/* 统一企业理念布局，消除空行 */
+.philosophy {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 32px;
+    margin-bottom: 0; /* 去掉底部间距 */
+}
+.philosophy-item {
+    padding: 12px 0; /* 统一内部上下间距 */
+}
+.philosophy-item h3 {
+    margin-bottom: 8px; /* 缩小标题与内容的间距 */
+    padding-bottom: 0; /* 去掉原标题的下划线（若不需要） */
+    border-bottom: none; /* 若要保留下划线可删除这行 */
+}
